@@ -39,7 +39,7 @@ def main():
     discount_amount = calculate_discount(subtotal, quantities)
     total = subtotal - discount_amount + shipping_fee + gift_wrap_fee
 
-    # Display details
+   
     for product, quantity in zip(products, quantities):
         print(f"{product}: Quantity: {quantity}, Total: ${prices[product] * quantity}")
 
