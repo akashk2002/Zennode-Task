@@ -4,24 +4,20 @@ def calculate_discount(cart_total, quantities):
     bulk_10_discount = 0
     tiered_50_discount = 0
 
-    # Flat $10 discount if cart total exceeds $200
+    
     if cart_total > 200:
         flat_10_discount = 10
 
-    # Bulk 5% discount if quantity of any single product exceeds 10 units
     for quantity in quantities:
         if quantity > 10:
             bulk_5_discount = max(bulk_5_discount, 0.05)
 
-    # Bulk 10% discount if total quantity exceeds 20 units
     if sum(quantities) > 20:
         bulk_10_discount = 0.1
 
-    # Tiered 50% discount if total quantity exceeds 30 units and any single product quantity > 15
     if sum(quantities) > 30 and max(quantities) > 15:
         tiered_50_discount = 0.5
 
-    # Choose the most beneficial discount
     max_discount = max(flat_10_discount, bulk_5_discount, bulk_10_discount, tiered_50_discount)
 
     return max_discount
